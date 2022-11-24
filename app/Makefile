@@ -99,7 +99,7 @@ APP_LOAD_PARAMS = --curve ed25519 $(COMMON_LOAD_PARAMS) --path $(APPPATH)
 
 ifeq ($(TARGET_NAME),TARGET_NANOS)
 APP_LOAD_PARAMS += --appFlags 0x000
-APP_STACK_SIZE:=3144
+APP_STACK_SIZE:=3136
 ICONNAME:=$(CURDIR)/nanos_icon.gif
 OUTPUT_ELF ?= $(CURDIR)/output/app_s.elf
 OUTPUT_INSTALLER := $(CURDIR)/pkg/installer_s.sh
@@ -175,10 +175,6 @@ endif
 
 #Feature temporarily disabled
 DEFINES   += LEDGER_SPECIFIC
-
-# Ledger: add the "Pending security review" disclaimer
-APP_LOAD_PARAMS += --tlvraw 9F:01
-DEFINES += HAVE_PENDING_REVIEW_SCREEN
 
 # Compiler, assembler, and linker
 
