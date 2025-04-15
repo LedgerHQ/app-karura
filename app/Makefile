@@ -94,6 +94,8 @@ LDLIBS += -Lrust/target/thumbv6m-none-eabi/release -lrslib
 CFLAGS += -Wvla
 APP_SOURCE_PATH += $(CURDIR)/rust/include
 
+APP_CUSTOM_LINK_DEPENDENCIES = rust
+
 .PHONY: rust
 rust:
 	cd rust && CARGO_HOME="$(CURDIR)/rust/.cargo" cargo build --target thumbv6m-none-eabi --release
